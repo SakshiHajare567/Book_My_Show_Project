@@ -1,5 +1,7 @@
 package com.example.Book_My_Show_May.Service;
 
+import com.example.Book_My_Show_May.Controllers.UserController;
+import com.example.Book_My_Show_May.Convertor.UserConvertor;
 import com.example.Book_My_Show_May.Entities.UserEntity;
 import com.example.Book_My_Show_May.EntryDtos.UserEntryDto;
 import com.example.Book_My_Show_May.Repository.UserRepository;
@@ -24,7 +26,7 @@ public class UserService {
         userRepository.save(userEntity);
     }*/
 
-    public void addUser(UserEntryDto userEntryDto) {
+   /* public void addUser(UserEntryDto userEntryDto) {
         UserEntity userEntity = new UserEntity();
 
         // Set values using setters
@@ -35,6 +37,15 @@ public class UserService {
         userEntity.setAddress(userEntryDto.getAddress());
 
         userRepository.save(userEntity);
+    }*/
+
+    //call the function of user convertor
+
+    public String addUser(UserEntryDto userEntryDto) throws Exception,NullPointerException {
+        UserEntity userEntity = UserConvertor.convertDtoToEntity(userEntryDto);
+        userRepository.save(userEntity);
+        return "User added successfully";
     }
+
 
 }
