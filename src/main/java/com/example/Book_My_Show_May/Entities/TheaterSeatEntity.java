@@ -18,6 +18,15 @@ public class TheaterSeatEntity {
 
     @Enumerated(value = EnumType.STRING)
     private SeatType seatType;
+    @ManyToOne
+    @JoinColumn(name = "theater_id")  // foreign key column name
+    private TheaterEntity theaterEntity;
+
+
+    //This is child class of theaterseat and parent class theaterEntity
+    //@ManyToOne
+  //  @JoinColumn(referencedColumnName = "name")
+    //private TheaterEntity theaterEntity;
 
     public TheaterSeatEntity() {
     }
@@ -54,8 +63,5 @@ public class TheaterSeatEntity {
         this.theaterEntity = theaterEntity;
     }
 
-    //This is child class of theaterseat and parent class theaterEntity
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "name")
-    private TheaterEntity theaterEntity;
+
 }

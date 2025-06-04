@@ -30,6 +30,10 @@ public class UserEntity {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
+    private final List<TicketEntity> bookedTickets = new ArrayList<>();
+    // Custom constructor needed for Builder
+
     public UserEntity() {
     }
 
@@ -85,8 +89,7 @@ public class UserEntity {
         return bookedTickets;
     }
 
-    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
-    private final List<TicketEntity> bookedTickets = new ArrayList<>();
-    // Custom constructor needed for Builder
 
+    public void setBookedTickets(List<TicketEntity> ticketEntityList1) {
+    }
 }

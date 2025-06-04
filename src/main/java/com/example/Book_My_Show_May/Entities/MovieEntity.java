@@ -27,6 +27,10 @@ public class MovieEntity {
     @Enumerated(value = EnumType.STRING)
     private Language language ;
 
+    //This is parent class(movie)and joint to child class(show)
+    @OneToMany(mappedBy = "movieEntity",cascade = CascadeType.ALL)
+    private List<ShowEntity> showEntityList;
+
     public MovieEntity() {
     }
 
@@ -86,8 +90,5 @@ public class MovieEntity {
         this.showEntityList = showEntityList;
     }
 
-    //This is parent class(movie)and joint to child class(show)
-    @OneToMany(mappedBy = "movieEntity",cascade = CascadeType.ALL)
-    private List<ShowEntity> showEntityList;
 
 }

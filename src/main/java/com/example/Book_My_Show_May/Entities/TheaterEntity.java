@@ -17,6 +17,16 @@ public class TheaterEntity {
     private String name ;
     private String location ;
 
+
+    //this is a parent class and child class theaterSet
+    @OneToMany(mappedBy = "theaterEntity" , cascade = CascadeType.ALL)
+    private List<TheaterSeatEntity> theaterSeatEntityList = new ArrayList<>();
+
+
+    //this is a parent class(TheaterEntity) and child class (ShowEntity)
+    @OneToMany(mappedBy = "theaterEntity",cascade = CascadeType.ALL)
+    private List<ShowEntity>showEntityList=new ArrayList<>();
+
     public TheaterEntity() {
     }
 
@@ -60,12 +70,5 @@ public class TheaterEntity {
         this.showEntityList = showEntityList;
     }
 
-    //this is a parent class and child class theaterSet
-    @OneToMany(mappedBy = "theaterEntity" , cascade = CascadeType.ALL)
-    private List<TheaterSeatEntity> theaterSeatEntityList = new ArrayList<>();
 
-
-    //this is a parent class(TheaterEntity) and child class (ShowEntity)
-    @OneToMany(mappedBy = "theaterEntity",cascade = CascadeType.ALL)
-    private List<ShowEntity>showEntityList=new ArrayList<>();
 }

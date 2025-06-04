@@ -41,7 +41,7 @@ public class UserService {
 
     //call the function of user convertor
 
-    public String addUser(UserEntryDto userEntryDto) throws Exception,NullPointerException {
+    public String addUser(UserEntryDto userEntryDto) throws Exception {
         UserEntity userEntity = UserConvertor.convertDtoToEntity(userEntryDto);
         userRepository.save(userEntity);
         return "User added successfully";

@@ -14,18 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/show")
 public class ShowController {
     @Autowired
-    ShowService showService ;
+    ShowService showService;
 
-    @PostMapping("/add_show")
+    @PostMapping("/add")
     public ResponseEntity<String> addShow(@RequestBody ShowEntryDto showEntryDto) {
 
         try {
-            String result= showService.addShow(showEntryDto);
-            return new ResponseEntity<>(result ,HttpStatus.CREATED);
-        }
-        catch (Exception e){
-            String response="Error occurred while adding show";
-            return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+            String result = showService.addShow(showEntryDto);
+            return new ResponseEntity<>(result, HttpStatus.CREATED);
+        } //catch (Exception e) {
+            //String response = "Error occurred while adding show";
+            //return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+
+        //}
+        catch (Exception e) {
+            e.printStackTrace(); // Helps debug root cause
+            return new ResponseEntity<>("Error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
 
     }

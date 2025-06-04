@@ -27,6 +27,12 @@ public class ShowSeatEntity {
 
     private Date bookedAt;
 
+
+    //This is a child(showseat)joint to parent(show entity)
+    @ManyToOne
+    @JoinColumn
+    private ShowEntity showEntity;
+
     public ShowSeatEntity() {
     }
 
@@ -86,8 +92,4 @@ public class ShowSeatEntity {
         this.showEntity = showEntity;
     }
 
-    //This is a child(showseat)joint to parent(show entity)
-    @ManyToOne
-    @JoinColumn
-    private ShowEntity showEntity;
 }

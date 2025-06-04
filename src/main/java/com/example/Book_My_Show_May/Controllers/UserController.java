@@ -26,7 +26,7 @@ public class UserController {
      //   return "User added successfully!";
    // }
 
-    @PostMapping("add_user")
+    @PostMapping("/add")
     public ResponseEntity<String> addUser(@RequestBody UserEntryDto userEntryDto){
         try{
             String response = userService.addUser(userEntryDto);

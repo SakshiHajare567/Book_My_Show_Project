@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 @Entity
-@Table(name="shows")
-//@Data
+@Table(name = "shows")
 public class ShowEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +30,25 @@ public class ShowEntity {
     @UpdateTimestamp
     private Date updatedOn;
 
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    private MovieEntity movieEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "theater_id")
+    private TheaterEntity theaterEntity;
+
+    @OneToMany(mappedBy = "showEntity", cascade = CascadeType.ALL)
+    private List<TicketEntity> listOfBookedTickets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "showEntity", cascade = CascadeType.ALL)
+    private List<ShowSeatEntity> listOfShowSeats = new ArrayList<>();
+
+    // Constructors
     public ShowEntity() {
     }
 
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -114,22 +129,10 @@ public class ShowEntity {
         this.listOfShowSeats = listOfShowSeats;
     }
 
-    // Many-to-One: Many shows can be linked to one movie
-    @ManyToOne
-    @JoinColumn(name = "movie_id") // Optional: you can specify the foreign key column name
-    private MovieEntity movieEntity;
-
-    // Many-to-One: Many shows can be held in one theater
-    @ManyToOne
-    @JoinColumn(name = "theater_id")
-    private TheaterEntity theaterEntity;
-
-    // One-to-Many: One show can have many booked tickets
-    @OneToMany(mappedBy = "showEntity", cascade = CascadeType.ALL)
-    private List<TicketEntity> listOfBookedTickets =new ArrayList<>();
-
-    // One-to-Many: One show can have many show seats
-    @OneToMany(mappedBy = "showEntity", cascade = CascadeType.ALL)
-    private List<ShowSeatEntity> listOfShowSeats = new ArrayList<>();
+    public void setListOfSeats(List<ShowSeatEntity> showSeatEntityList) {
+        this.listOfShowSeats = showSeatEntityList;
+    }
 
 }
+
+
