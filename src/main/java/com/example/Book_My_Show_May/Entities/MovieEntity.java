@@ -2,11 +2,14 @@ package com.example.Book_My_Show_May.Entities;
 
 import com.example.Book_My_Show_May.Enums.Genre;
 import com.example.Book_My_Show_May.Enums.Language;
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
+//import jakarta.persistence.*;
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
 
+//import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.List;
 @Entity
 @Table(name="movies")

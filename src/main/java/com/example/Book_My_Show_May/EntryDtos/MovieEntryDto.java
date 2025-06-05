@@ -2,9 +2,9 @@ package com.example.Book_My_Show_May.EntryDtos;
 
 import com.example.Book_My_Show_May.Enums.Genre;
 import com.example.Book_My_Show_May.Enums.Language;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+//import jakarta.persistence.Column;
+//import jakarta.persistence.EnumType;
+//import jakarta.persistence.Enumerated;
 
 public class MovieEntryDto {
 

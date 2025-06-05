@@ -1,11 +1,13 @@
 package com.example.Book_My_Show_May.Entities;
 
 import com.example.Book_My_Show_May.Enums.ShowType;
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 //import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+//import javax.persistence.*;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;

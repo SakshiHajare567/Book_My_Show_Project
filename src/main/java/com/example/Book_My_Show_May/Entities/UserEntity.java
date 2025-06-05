@@ -1,11 +1,12 @@
 package com.example.Book_My_Show_May.Entities;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 //import lombok.AllArgsConstructor;
 //import lombok.Builder;
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
@@ -31,7 +32,7 @@ public class UserEntity {
     private String email;
 
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
-    private final List<TicketEntity> bookedTickets = new ArrayList<>();
+    private  List<TicketEntity> bookedTickets = new ArrayList<>();
     // Custom constructor needed for Builder
 
     public UserEntity() {
@@ -85,11 +86,19 @@ public class UserEntity {
         this.email = email;
     }
 
+    //public List<TicketEntity> getBookedTickets() {
+      //  return bookedTickets;
+   // }
+
+
+   // public void setBookedTickets(List<TicketEntity> ticketEntityList1) {
+    //}
+
     public List<TicketEntity> getBookedTickets() {
         return bookedTickets;
     }
 
-
-    public void setBookedTickets(List<TicketEntity> ticketEntityList1) {
+    public void setBookedTickets(List<TicketEntity> bookedTickets) {
+        this.bookedTickets = bookedTickets;
     }
 }

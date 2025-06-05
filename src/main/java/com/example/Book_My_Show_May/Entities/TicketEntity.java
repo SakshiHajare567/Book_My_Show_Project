@@ -1,9 +1,10 @@
 package com.example.Book_My_Show_May.Entities;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.UUID;
@@ -35,7 +36,7 @@ public class TicketEntity {
 
     // This is child class(TicketEntity)and parent class(UserEntity)
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "user_id")  // This creates the foreign key column in ticket table
     private UserEntity userEntity;
 
     // This is child class(TicketEntity)and parent class(ShowEntity)

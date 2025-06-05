@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketEntryDto {
-    private int showId ;
-    private int userId ;
-    private final List<String >requestedSeats=new ArrayList<>();
-
+    private int showId;
+    private int userId;
+    private List<String> requestedSeats;
     public TicketEntryDto() {
     }
 
@@ -29,5 +28,9 @@ public class TicketEntryDto {
 
     public List<String> getRequestedSeats() {
         return requestedSeats;
+    }
+
+    public void setRequestedSeats(List<String> requestedSeats) {
+        this.requestedSeats = requestedSeats;
     }
 }

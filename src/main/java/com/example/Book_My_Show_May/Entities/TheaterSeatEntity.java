@@ -1,7 +1,9 @@
 package com.example.Book_My_Show_May.Entities;
 
 import com.example.Book_My_Show_May.Enums.SeatType;
-import jakarta.persistence.*;
+//mport jakarta.persistence.*;
+
+import javax.persistence.*;
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
 

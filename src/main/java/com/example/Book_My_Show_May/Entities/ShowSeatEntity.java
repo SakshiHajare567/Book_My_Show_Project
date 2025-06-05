@@ -1,17 +1,15 @@
 package com.example.Book_My_Show_May.Entities;
 
 import com.example.Book_My_Show_May.Enums.SeatType;
-import jakarta.persistence.*;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
+//import jakarta.persistence.*;
 
-import java.util.Date;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name="show_seats")
-//@Data
-//@NoArgsConstructor
+@Table(name = "show_seats")
 public class ShowSeatEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,10 +23,8 @@ public class ShowSeatEntity {
     @Enumerated(value = EnumType.STRING)
     private SeatType seatType;
 
-    private Date bookedAt;
+    private LocalDateTime bookedAt;
 
-
-    //This is a child(showseat)joint to parent(show entity)
     @ManyToOne
     @JoinColumn
     private ShowEntity showEntity;
@@ -76,11 +72,11 @@ public class ShowSeatEntity {
         this.seatType = seatType;
     }
 
-    public Date getBookedAt() {
+    public LocalDateTime getBookedAt() {
         return bookedAt;
     }
 
-    public void setBookedAt(Date bookedAt) {
+    public void setBookedAt(LocalDateTime bookedAt) {
         this.bookedAt = bookedAt;
     }
 
@@ -91,5 +87,4 @@ public class ShowSeatEntity {
     public void setShowEntity(ShowEntity showEntity) {
         this.showEntity = showEntity;
     }
-
 }

@@ -1,8 +1,8 @@
 package com.example.Book_My_Show_May.EntryDtos;
 
 import com.example.Book_My_Show_May.Enums.ShowType;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+//import jakarta.persistence.EnumType;
+//import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
